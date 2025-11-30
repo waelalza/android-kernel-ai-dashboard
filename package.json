@@ -1,0 +1,46 @@
+{
+  "name": "android-kernel-ai-dashboard",
+  "version": "1.0.0",
+  "description": "Portable Android Kernel AI Dashboard - Control Android devices with AI assistance",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win portable"
+  },
+  "build": {
+    "appId": "android.kernel.ai.dashboard",
+    "productName": "Android Kernel AI Dashboard",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron/**/*",
+      "ai/**/*",
+      "kernel/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "electron/adb",
+        "to": "adb",
+        "filter": ["**/*"]
+      }
+    ],
+    "win": {
+      "target": "portable",
+      "icon": "electron/icon.ico"
+    },
+    "portable": {
+      "artifactName": "${productName}.exe"
+    }
+  },
+  "keywords": ["android", "kernel", "adb", "ai", "electron"],
+  "author": "Android Kernel AI Dashboard",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  }
+}
+
